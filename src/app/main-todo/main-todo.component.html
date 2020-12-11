@@ -1,0 +1,24 @@
+<p>main-todo component</p>
+<form [formGroup]="todoForm"> 
+    <label for="name">Name </label>
+    <input type="text" name="name" id="name" formControlName="name">
+    <br>
+    <label for="dueDate">Due Date </label>
+    <input type="date" name="dueDate" id="dueDate" formControlName="dueDate">
+    <br>
+    <label for="priority">Priority </label>
+    <select name="priority" id="priority" formControlName="priority">
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+    </select>
+    <br>
+</form>
+<br>
+<button [routerLink]="['/subtodo']" (click)="createTodo()">Create Todo</button>
+
+<br>
+<hr>
+<br>
+
+<app-todo-display></app-todo-display>

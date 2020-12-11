@@ -1,0 +1,37 @@
+<p>sub-todo component</p>
+<img src="{{imageUrl}}" alt="No Image uploaded">
+<br>
+<br>
+<form [formGroup]="subTodoForm">
+    <label for="addImage">Add Image</label>
+    <br>
+    <input type="file" accept="image/*" name="addImage" id="addImage" formControlName="image-file" #imageFile>
+
+    <hr>
+
+    <table>
+        <thead>
+            <tr>
+                <th><h2>Sub-Todos</h2></th>
+                <th><button (click)="addSub()">+ Sub-Todo</button></th>
+            </tr>
+        </thead>
+    </table>
+    <table>
+        <tbody formArrayName="subTodoArray">
+            <tr class="subTodoNumber" *ngFor="let subtodo of subTodoArray.controls; index as i">
+                <td>
+                    <textarea cols="30" rows="1" [formControl]="subTodoArray.controls[i]"
+                        placeholder="Enter sub-todo description"></textarea>
+                </td>
+                <td>
+                    <button type="button" (click)="deleteSub(i)">X</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br><br>
+    <button [routerLink]="['/']">Back</button>
+    <button (click)="submit()">Submit</button>    
+    <button (click)="sendToExpress()">Send Data to DB</button>
+</form>
