@@ -17,7 +17,7 @@ export class SubTodoComponent implements OnInit {
   // description: FormControl;
   imageUrl: string;
   @ViewChild('imageFile') imageFile: ElementRef;
-  @Output() newItemEvent = new EventEmitter<string>();
+  
 
 
   constructor(private fb: FormBuilder, private http: HttpClient, private todoSvc: TodoStorageService ) { }
